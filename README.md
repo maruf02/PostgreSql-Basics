@@ -1,91 +1,75 @@
-# TechX
-
-# Live:- https://techx-client.vercel.app/
-
-# Live(Backend):- https://techx-server-five.vercel.app/
-
-# Credential:
-
-## Admin:
-
-### Email: admin@admin.com
-
-### Password: password1234
-
-## User:
-
-### Email: mk@mk.com
-
-### Password: mk
+# PostgreSQL Basics
 
 ## Introduction
 
-This is TechX project. this is a little of Blog type project. this project very small but you can get vibe of little Social media system, NextJs, React, Redux.
+This file contains basic information about PostgreSQL and give explain of top 10 question answer.
 
-## Project Description
+## 1. What is PostgreSQL?
 
-This is TechX project. this is a little of Blog type type project. this project very small but you can get vibe of little Social media system, NextJs, React, Redux. The purpose of this project create a vibe of fast performance os state that manage in Redux with NexJs system technology
+PostgreSQL is a powerful, open-source relational database management system. It is used to store and manage data. You can perform complex queries and handle large amounts of data with PostgreSQL.
 
-## Features
+## 2. What is the purpose of a database schema in PostgreSQL?
 
-- Api for list of all Blog
-- APi for search by text that search work for Blog tittle and description. so you can get accurate result.
-- Api for sort Blog by your price range
-- Api for sort your Blog but category wise
-- Api for sort Blog most likes/upvote
-- Api for create your Blog
-- Api for manage your account
-- Api for manage Blog post
-- Api for Payment for your premium post visit
+A database schema is a way to organize data in PostgreSQL. It groups tables, views, and other objects in the database. A schema makes it easier to manage and understand the database structure.
 
-## Technology Stack
+## 3. Primary Key and Foreign Key
 
-- Backend:
-  - Node js
-  - Express js
-  - mongoDB
-  - mongoose DB
+- **Primary Key**: A primary key is a unique identifier for each record in a table. For example, `student_id` in a `students` table. Each student has a different `student_id`.
 
-## Installation Guideline
+- **Foreign Key**: A foreign key is a column that creates a link between two tables. It refers to the primary key in another table. For example, `student_id` in an `enrollment` table can be a foreign key linking to `students(student_id)`.
 
-Instructions on how to install, configure, and get the project running locally.
+## 4. Difference between VARCHAR and CHAR
 
-### Prerequisites
+- **VARCHAR**: This data type stores variable-length strings. It uses only the space needed for the actual data. For example, `VARCHAR(50)` can hold up to 50 characters but only uses space for the characters entered.
 
-- Download and Node.js LTS version in locally in your machine
-- vs code or any code editor that your preference
+- **CHAR**: This data type stores fixed-length strings. It always uses the full length specified. So, `CHAR(50)` always takes 50 spaces, even if you enter fewer characters.
 
-### Installation Steps
+## 5. Purpose of WHERE clause
 
-1. Clone this git repo
-2. Open this project into your editor run this command
+The `WHERE` clause filters data in a `SELECT` statement. It retrieves only the rows that meet certain conditions. For example, `SELECT * FROM students WHERE age > 20;` retrieves students older than 20.
 
-```tsc
-code .
+## 6. Using LIMIT and OFFSET
+
+- **LIMIT**: The `LIMIT` clause restricts the number of rows returned in a result. For example, `LIMIT 5` shows only the first 5 rows.
+
+- **OFFSET**: The `OFFSET` clause skips a certain number of rows in the result. For example, `OFFSET 3` skips the first 3 rows and shows the rest.
+
+Example: `SELECT * FROM students LIMIT 5 OFFSET 3;` retrieves 5 students, starting from the 4th one.
+
+## 7. Updating data with UPDATE
+
+The `UPDATE` statement changes existing data in a table. You can use the `WHERE` clause to specify which rows to update.
+
+Example:
+
+```sql
+UPDATE students
+SET age = 25
+WHERE student_id = 1;
 ```
 
-3. then run this command, this command install all needed things
+## 8. JOIN operation
 
-```tsc
-npm i
-```
+The `JOIN` operation combines rows from two or more tables based on a related column. For example, you can join the `students` and `enrollment` tables on `student_id` to get information about student enrollments. This allows you to see which students are enrolled in which courses.
 
-4. create `.env` file
-5. copy this code and pase
+## 9. GROUP BY clause
 
-```tsc
-NODE_ENV=production
-PORT=5000
-DATABASE_URL=<you db Url>
-```
+The `GROUP BY` clause groups rows with the same values in specified columns. It is useful for aggregation functions. For example, you can group students by age to find the average age. This way, you can analyze data more effectively.
 
-6. replace your db_url
-7. then run this command
+## 10. Calculating COUNT, SUM, and AVG
 
-```tsc
-npm run start:dev
-```
+- **COUNT**: This function counts the number of rows. For example, `SELECT COUNT(*) FROM students;` returns the total number of students in the table.
 
-8. Enjoy the project
+- **SUM**: This function adds up values in a column. For example, `SELECT SUM(salary) FROM employees;` gives the total salary of all employees in the table.
 
-## Thanks For your Valuable time.
+- **AVG**: This function calculates the average value of a column. For example, `SELECT AVG(age) FROM students;` returns the average age of the students.
+
+## 11. Purpose of Index
+
+An index in PostgreSQL improves the speed of data retrieval operations on a table. It is like a book index that helps you find information quickly without scanning the entire book. Using indexes can significantly enhance query performance.
+
+## 12. Understanding Views
+
+A view is a virtual table in PostgreSQL. It is based on a `SELECT` query that pulls data from one or more tables. Views do not store data themselves but provide a way to simplify complex queries. Unlike tables, views can present data in a specific way without changing the underlying tables. This helps in organizing data better and enhancing security by limiting access to specific rows or columns.
+
+### Thanks For your VAluable Time.
