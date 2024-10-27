@@ -14,3 +14,13 @@ CREATE DATABASE university_db;
     backend_mark INTEGER,
     status VARCHAR(20)
 );
+
+
+
+-- creating courses table
+
+CREATE TABLE courses (
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(50) NOT NULL,
+    credits INTEGER NOT NULL
+);
