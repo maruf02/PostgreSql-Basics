@@ -15,7 +15,7 @@ CREATE DATABASE university_db;
     status VARCHAR(20)
 );
 
---(Query-1) insert data into student table
+--(Optional) insert data into student table
 
 INSERT INTO students (student_name, age, email, frontend_mark, backend_mark, status) VALUES
 ('Sameer', 21, 'sameer@example.com', 48, 60, NULL),
@@ -47,10 +47,28 @@ INSERT INTO courses (course_name, credits) VALUES
 -- (optional) see all data for student table
 select * from courses
 
-
+-- create enrollment table
 CREATE TABLE enrollment (
-    course_id SERIAL PRIMARY KEY,
-    course_name VARCHAR(50) NOT NULL,
-    credits INTEGER NOT NULL
+    enrollment_id SERIAL PRIMARY KEY,
+    student_id INTEGER REFERENCES students(student_id),
+    course_id INTEGER REFERENCES courses(course_id)
 );
 
+-- insert data into enrollment table with foreign key in student id and courses id
+
+INSERT INTO enrollment (student_id, course_id) VALUES
+(1, 1),
+(1, 2),
+(2, 1),
+(3, 2);
+
+
+-- (optional) see all data from enrollment table
+select * from enrollment
+
+-- (Query 1): Insert a new student record
+INSERT INTO students (student_name, age, email, frontend_mark, backend_mark, status)
+VALUES ('Md Rashiduzzaman MAruf', 28, 'rashiduzzaman99@gmail.com', 95, 89, NULL);
+
+
+-- (Query-2)=> Retrieve the names of all students who are enrolled in the course titled 'Next.js'.
