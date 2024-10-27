@@ -2,3 +2,4 @@
 
 -- create databade named university_db.
 CREATE DATABASE university_db;
+ 
